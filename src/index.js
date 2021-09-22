@@ -10,25 +10,14 @@ import {
 } from "react-router-dom";
 
 import { Header } from "./components";
-
-// const { allPost, setAllPosts } = useState([]);
-
-async function fetchAllPosts() {
-  const { data } = axios.get(
-    "https://strangers-things.herokuapp.com/api/2106-UNF-RM-WEB-PT/posts"
-  );
-  console.log(data);
-}
+import { Posts } from "./components";
 
 const App = () => {
-  useEffect(() => {
-    fetchAllPosts();
-  }, []);
-
   return (
     <Router>
       <div id="App">
         <Header />
+        <Posts />
       </div>
     </Router>
   );
