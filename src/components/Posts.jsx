@@ -26,7 +26,6 @@ const Posts = () => {
       <h1>
         {allPosts.length
           ? allPosts.map((post) => {
-              console.log(post);
               return (
                 <div key={post._id}>
                   <h4>{post.title}</h4>
