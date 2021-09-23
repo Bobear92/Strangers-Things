@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { registerUser } from "../api";
+import { storeToken } from "../auth";
 
 const Register = ({ setIsLoading }) => {
   const [username, setUsername] = useState("");
@@ -15,9 +16,11 @@ const Register = ({ setIsLoading }) => {
           setIsLoading(true);
 
           try {
-            const result = await registerUser(username, password);
+            const {
+              data: { token },
+            } = await registerUser(username, password);
 
-            // need to create a store token function
+            storeToken(token);
 
             setUsername("");
             setPassword("");

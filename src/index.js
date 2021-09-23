@@ -9,8 +9,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import { Header, Register } from "./components";
-import { Posts } from "./components";
+import { Header, Loading, Posts, Register } from "./components";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -18,10 +17,9 @@ const App = () => {
   return (
     <Router>
       <div id="App">
-        <Header />
-        {/* <Register setIsLoading={setIsLoading}/>
-        <Login setIsLoading={setIsLoading}/> */}
-        <Posts />
+        {/* <Header /> */}
+        {/* <Register setIsLoading={setIsLoading} /> */}
+        {/* <Posts /> */}
         {isLoading ? <Loading /> : null}
       </div>
     </Router>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { loginUser } from "../api";
+import { storeToken } from "../auth";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -14,9 +15,11 @@ const Login = () => {
           event.preventDefault();
 
           try {
-            const result = await loginUser(username, password);
+            const {
+              data: { token },
+            } = await loginUser(username, password);
 
-            // need to create a store token function
+            storeToken(token);
 
             setUsername("");
             setPassword("");
