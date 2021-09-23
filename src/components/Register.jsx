@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { registerUser } from "../api";
 
-const Register = () => {
+const Register = ({ setIsLoading }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -12,6 +12,7 @@ const Register = () => {
         id="register"
         onSubmit={async (event) => {
           event.preventDefault();
+          setIsLoading(true);
 
           try {
             const result = await registerUser(username, password);
@@ -22,6 +23,8 @@ const Register = () => {
             setPassword("");
           } catch (error) {
             console.log(error);
+          } finally {
+            setIsLoading(false);
           }
         }}
       >

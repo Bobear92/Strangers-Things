@@ -13,11 +13,16 @@ import { Header, Register } from "./components";
 import { Posts } from "./components";
 
 const App = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   return (
     <Router>
       <div id="App">
         <Header />
+        {/* <Register setIsLoading={setIsLoading}/>
+        <Login setIsLoading={setIsLoading}/> */}
         <Posts />
+        {isLoading ? <Loading /> : null}
       </div>
     </Router>
   );
