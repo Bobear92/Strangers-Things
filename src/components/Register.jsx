@@ -57,7 +57,7 @@ const Register = ({ setIsLoading }) => {
           ></input>
         </fieldset>
 
-        <button>Register</button>
+        <button className="auth-button">Register</button>
       </form>
     </div>
   );
