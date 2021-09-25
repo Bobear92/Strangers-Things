@@ -1,58 +1,92 @@
+body {
+  background-color: burlywood;
+}
+
 /* Header Components  */
 
 .NavBar {
-    background-color: rgba(101, 101, 161, 0.712);
-    padding: 15px;
-    display: grid;
-    grid-template-columns:40% 20% 20% 20% fit-content(100%);
-    grid-template-rows:100%;
-    text-align: right;
-    
+  background-color: rgba(101, 101, 161, 0.712);
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 40% 20% 20% 20% fit-content(100%);
+  grid-template-rows: 100%;
+  text-align: right;
+  width: 100%;
 
-    font-size: larger;
-    font-weight: bolder;
-    
-    
-
+  font-size: larger;
+  font-weight: bolder;
 }
 
 .HeadLink {
-    color: chartreuse;
-    margin: 1rem;
-    
-    
+  color: chartreuse;
+  margin: 1rem;
 }
- .HeadTitle {
-     
-     justify-content: left;
-     grid-column: 1;
-     display: grid;
-     font-size: x-large;
- }
 
+.loggedOut {
+  grid-column: 2;
+  display: flex;
+}
 
- /* Login and register components */
+.loggedUser {
+  text-decoration: underline;
+  padding-top: 16px;
+  color: aquamarine;
+}
 
- .auth-component-main-container {
-     color: red;
-     width: 30%;
-     height: 100%;
-     display: flex;
-     justify-content: center;
-     font-size: 200%;
-     background-color: rgb(92, 15, 15);
-     margin-top: 10%;
-     border: 5px rgb(228, 222, 211) solid;
-     margin-left: 35%;
-     
- }
+.HeadTitle {
+  justify-content: left;
+  grid-column: 1;
+  display: grid;
+  font-size: x-large;
+}
 
- .auth-button {
-     font-size: xx-large;
-     display: flex;
-     justify-content: center;
-     color: green;
-    
-     padding-left: 100px;
+/* Login and register components */
 
- }
+.auth-component-main-container {
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-size: 200%;
+  background-color: rgb(92, 15, 15);
+  border: 5px rgb(228, 222, 211) solid;
+  margin: 10% 20%;
+  padding: 5%;
+}
+
+.auth-component-input {
+  margin: 5%;
+}
+
+.auth-button {
+  font-size: xx-large;
+  margin: 5%;
+  color: green;
+  margin-left: 100px;
+}
+
+/* Posts */
+
+.card {
+  border: 5px solid black;
+  background-color: aqua;
+  font-size: medium;
+  width: 25%;
+  margin: 2%;
+  padding-left: 5%;
+  padding-right: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-title {
+  font-size: x-large;
+  font-weight: bold;
+  text-decoration: underline;
+}

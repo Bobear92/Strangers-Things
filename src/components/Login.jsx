@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { loginUser } from "../api";
-import { storeToken } from "../auth";
+import { storeToken, storeUser } from "../auth";
 
-const Login = () => {
+const Login = ({ setIsLoading, setLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -20,6 +20,8 @@ const Login = () => {
             } = await loginUser(username, password);
 
             storeToken(token);
+            storeUser(username);
+            setLoggedIn(true);
 
             setUsername("");
             setPassword("");
@@ -54,7 +56,7 @@ const Login = () => {
           ></input>
         </fieldset>
 
-        <button>Login</button>
+        <button className="auth-button">Login</button>
       </form>
     </div>
   );

@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
 
-const Posts = () => {
-  const [allPosts, setAllPosts] = useState([]);
-
+const Posts = ({ allPosts, setAllPosts }) => {
   async function fetchAllPosts() {
     try {
       const { data } = await axios.get(
@@ -23,19 +21,21 @@ const Posts = () => {
 
   return (
     <>
-      <h1>
+      <div className="card-container">
         {allPosts.length
           ? allPosts.map((post) => {
               return (
-                <div key={post._id}>
-                  <h4>{post.title}</h4>
-                  <h5>{post.description}</h5>
-                  <h6>{post.price}</h6>
+                <div className="card" key={post._id}>
+                  <p className="card-title">{post.title}</p>
+                  <p>{post.description}</p>
+                  <p>{post.price}</p>
+                  <p>{post.location}</p>
+                  <p>{post.willdeliver}</p>
                 </div>
               );
             })
           : null}
-      </h1>
+      </div>
     </>
   );
 };

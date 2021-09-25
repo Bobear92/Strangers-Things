@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { registerUser } from "../api";
-import { storeToken } from "../auth";
+import { storeToken, storeUser } from "../auth";
 
-const Register = ({ setIsLoading }) => {
+const Register = ({ setIsLoading, setLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -21,6 +21,8 @@ const Register = ({ setIsLoading }) => {
             } = await registerUser(username, password);
 
             storeToken(token);
+            storeUser(username);
+            setLoggedIn(true);
 
             setUsername("");
             setPassword("");

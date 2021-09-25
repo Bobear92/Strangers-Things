@@ -9,29 +9,31 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import { Header, Loading, Login, Register, Posts } from "./components";
+import { Header, Loading, Login, Register, Posts, NewPost } from "./components";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [allPosts, setAllPosts] = useState([]);
 
   return (
     <Router>
       <div id="App">
-        <Header />
+        <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         <Switch>
           <Route path="/login">
-            <Login />
+            <Login setIsLoading={setIsLoading} setLoggedIn={setLoggedIn} />
           </Route>
 
           <Route path="/register">
-            <Register />
+            <Register setIsLoading={setIsLoading} setLoggedIn={setLoggedIn} />
           </Route>
 
           <Route path="/posts">
-            <Posts />
+            <Posts setAllPosts={setAllPosts} allPosts={allPosts} />
+            <NewPost setAllPosts={setAllPosts} allPosts={allPosts} />
           </Route>
         </Switch>{" "}
-        
       </div>
     </Router>
   );
