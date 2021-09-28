@@ -8,12 +8,15 @@ const Header = ({ loggedIn, setLoggedIn }) => {
   return (
     <div className="NavBar">
       <p className="HeadTitle">Stranger's Things</p>
+      <NavLink className="Head-Post" to="/posts">
+        Posts
+      </NavLink>
 
       {loggedIn ? (
-        <div className="loggedOut">
+        <>
           <div className="loggedUser">{`${user}`}</div>
           <NavLink
-            className="HeadLink"
+            className="Head-Logged-in"
             to="/login"
             onClick={() => {
               localStorage.clear();
@@ -22,19 +25,17 @@ const Header = ({ loggedIn, setLoggedIn }) => {
           >
             Log Out
           </NavLink>
-        </div>
+        </>
       ) : (
-        <NavLink className="HeadLink" to="/login">
-          Login
-        </NavLink>
+        <>
+          <NavLink className="Head-Login" to="/login">
+            Login
+          </NavLink>
+          <NavLink className="Head-Reg" to="/register">
+            Register
+          </NavLink>
+        </>
       )}
-
-      <NavLink className="HeadLink" to="/register">
-        Register
-      </NavLink>
-      <NavLink className="HeadLink" to="/posts">
-        Posts
-      </NavLink>
     </div>
   );
 };

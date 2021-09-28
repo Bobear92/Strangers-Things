@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
+import { SinglePost, SinglePostPage } from ".";
+import { Link } from "react-router-dom";
 
 const Posts = ({ allPosts, setAllPosts }) => {
   async function fetchAllPosts() {
@@ -25,12 +27,15 @@ const Posts = ({ allPosts, setAllPosts }) => {
         {allPosts.length
           ? allPosts.map((post) => {
               return (
-                <div className="card" key={post._id}>
-                  <p className="card-title">{post.title}</p>
-                  <p>{post.description}</p>
-                  <p>{post.price}</p>
-                  <p>{post.location}</p>
-                  <p>{post.willdeliver}</p>
+                <div key={post._id}>
+                  <Link
+                    to={`/single-post/${post._id}`}
+                    onClick={() => {
+                      <SinglePostPage />;
+                    }}
+                  >
+                    <SinglePost post={post} />
+                  </Link>
                 </div>
               );
             })

@@ -50,7 +50,7 @@ const Register = ({ setIsLoading, setLoggedIn }) => {
           <label htmlFor="password">Password</label>
           <input
             id="password"
-            type="text"
+            type="password"
             placeholder="Enter Password"
             value={password}
             onChange={(event) => {

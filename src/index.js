@@ -9,7 +9,15 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import { Header, Loading, Login, Register, Posts, NewPost } from "./components";
+import {
+  Header,
+  Loading,
+  Login,
+  Register,
+  Posts,
+  NewPost,
+  SinglePostPage,
+} from "./components";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -32,6 +40,9 @@ const App = () => {
           <Route path="/posts">
             <Posts setAllPosts={setAllPosts} allPosts={allPosts} />
             <NewPost setAllPosts={setAllPosts} allPosts={allPosts} />
+          </Route>
+          <Route path="/single-post/:id">
+            <SinglePostPage allPosts={allPosts} />
           </Route>
         </Switch>{" "}
       </div>

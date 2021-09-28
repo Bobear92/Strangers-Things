@@ -12,25 +12,38 @@ body {
   grid-template-rows: 100%;
   text-align: right;
   width: 100%;
-
   font-size: larger;
   font-weight: bolder;
 }
 
-.HeadLink {
+.Head-Login {
   color: chartreuse;
   margin: 1rem;
+  grid-column: 3;
+}
+.Head-Logged-in {
+  color: chartreuse;
+  margin: 1rem;
+  grid-column: 4;
 }
 
-.loggedOut {
+.Head-Reg {
+  color: chartreuse;
+  margin: 1rem;
+  grid-column: 4;
+}
+
+.Head-Post {
+  color: chartreuse;
+  margin: 1rem;
   grid-column: 2;
-  display: flex;
 }
 
 .loggedUser {
   text-decoration: underline;
   padding-top: 16px;
-  color: aquamarine;
+  color: rgb(64, 114, 97);
+  grid-column: 3;
 }
 
 .HeadTitle {
@@ -71,8 +84,8 @@ body {
   border: 5px solid black;
   background-color: aqua;
   font-size: medium;
-  width: 25%;
-  margin: 2%;
+  width: 250px;
+  margin: 50px;
   padding-left: 5%;
   padding-right: 5%;
   display: flex;
