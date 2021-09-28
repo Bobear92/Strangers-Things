@@ -39,10 +39,14 @@ const App = () => {
 
           <Route path="/posts">
             <Posts setAllPosts={setAllPosts} allPosts={allPosts} />
-            <NewPost setAllPosts={setAllPosts} allPosts={allPosts} />
+            
           </Route>
           <Route path="/single-post/:id">
             <SinglePostPage allPosts={allPosts} />
+          </Route>
+          <Route path="/create-new">
+          <NewPost setAllPosts={setAllPosts} allPosts={allPosts}/>
+
           </Route>
         </Switch>{" "}
       </div>

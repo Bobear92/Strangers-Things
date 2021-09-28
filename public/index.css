@@ -8,7 +8,7 @@ body {
   background-color: rgba(101, 101, 161, 0.712);
   padding: 15px;
   display: grid;
-  grid-template-columns: 40% 20% 20% 20% fit-content(100%);
+  grid-template-columns:20% 20% 20% 20% 20% fit-content(100%);
   grid-template-rows: 100%;
   text-align: right;
   width: 100%;
@@ -19,31 +19,31 @@ body {
 .Head-Login {
   color: chartreuse;
   margin: 1rem;
-  grid-column: 3;
+  grid-column: 4;
 }
 .Head-Logged-in {
   color: chartreuse;
   margin: 1rem;
-  grid-column: 4;
+  grid-column: 5;
 }
 
 .Head-Reg {
   color: chartreuse;
   margin: 1rem;
-  grid-column: 4;
+  grid-column: 5;
 }
 
 .Head-Post {
   color: chartreuse;
   margin: 1rem;
-  grid-column: 2;
+  grid-column: 3;
 }
 
 .loggedUser {
   text-decoration: underline;
   padding-top: 16px;
   color: rgb(64, 114, 97);
-  grid-column: 3;
+  grid-column: 4;
 }
 
 .HeadTitle {
@@ -51,6 +51,12 @@ body {
   grid-column: 1;
   display: grid;
   font-size: x-large;
+}
+
+.create-new {
+  color: chartreuse;
+  margin: 1rem;
+  grid-column: 2;
 }
 
 /* Login and register components */

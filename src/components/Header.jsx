@@ -8,6 +8,9 @@ const Header = ({ loggedIn, setLoggedIn }) => {
   return (
     <div className="NavBar">
       <p className="HeadTitle">Stranger's Things</p>
+      <NavLink className="create-new" to="/create-new">
+        Create New Post
+      </NavLink>
       <NavLink className="Head-Post" to="/posts">
         Posts
       </NavLink>
