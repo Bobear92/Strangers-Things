@@ -28,9 +28,6 @@ const NewPost = ({ allPosts, setAllPosts }) => {
               token
             );
 
-            console.log(createdPost, "just post");
-            console.log([createdPost, ...allPosts], "all of them");
-
             setAllPosts([createdPost, ...allPosts]);
           } catch (error) {
             console.error(error);

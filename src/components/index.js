@@ -6,3 +6,4 @@ export { default as Loading } from "./Loading";
 export { default as NewPost } from "./NewPost";
 export { default as SinglePost } from "./SinglePost";
 export { default as SinglePostPage } from "./SinglePostPage";
+export { default as UserPost } from "./UserPost";

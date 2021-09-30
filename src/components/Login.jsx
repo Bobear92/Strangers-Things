@@ -3,8 +3,7 @@ import { NavLink } from "react-router-dom";
 import { loginUser } from "../api";
 import { storeToken, storeUser } from "../auth";
 
-const Login = ({ setIsLoading, setLoggedIn }) => {
-  const [username, setUsername] = useState("");
+const Login = ({ setIsLoading, setLoggedIn, username, setUsername }) => {
   const [password, setPassword] = useState("");
 
   return (

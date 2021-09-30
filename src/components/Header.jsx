@@ -8,16 +8,18 @@ const Header = ({ loggedIn, setLoggedIn }) => {
   return (
     <div className="NavBar">
       <p className="HeadTitle">Stranger's Things</p>
-      <NavLink className="create-new" to="/create-new">
-        Create New Post
-      </NavLink>
-      <NavLink className="Head-Post" to="/posts">
-        Posts
-      </NavLink>
 
       {loggedIn ? (
         <>
-          <div className="loggedUser">{`${user}`}</div>
+          <NavLink className="create-new" to="/create-new">
+            Create New Post
+          </NavLink>
+          <NavLink className="Head-Post" to="/posts">
+            Posts
+          </NavLink>
+
+          <NavLink className="loggedUser" to="/my-posts">{`${user}`}</NavLink>
+
           <NavLink
             className="Head-Logged-in"
             to="/login"
@@ -31,6 +33,9 @@ const Header = ({ loggedIn, setLoggedIn }) => {
         </>
       ) : (
         <>
+          <NavLink className="Head-Post" to="/posts">
+            Posts
+          </NavLink>
           <NavLink className="Head-Login" to="/login">
             Login
           </NavLink>
