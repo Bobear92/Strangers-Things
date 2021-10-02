@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
-import { SinglePost, SinglePostPage } from ".";
+import { SinglePost } from ".";
 
 const Posts = ({ allPosts, setUsername }) => {
   return (

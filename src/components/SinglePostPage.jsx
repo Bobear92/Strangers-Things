@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { SinglePost } from ".";
 
-const SinglePostPage = ({ allPosts }) => {
+const SinglePostPage = ({ allPosts, setUsername }) => {
   const { id } = useParams();
   const singlePost = allPosts.find((post) => {
     if (post._id === id) {
@@ -14,7 +14,7 @@ const SinglePostPage = ({ allPosts }) => {
 
   return (
     <>
-      <SinglePost post={singlePost} />
+      <SinglePost post={singlePost} setUsername={setUsername} />
     </>
   );
 };

@@ -1,8 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { SinglePostPage } from ".";
+import { getUser } from "../auth";
+import { deletePost, message } from "../api";
 
 const SinglePost = ({ post, setUsername }) => {
+  const currentUser = getUser();
+  const { id } = useParams();
   return (
     <div className="card">
       <Link
@@ -27,6 +31,27 @@ const SinglePost = ({ post, setUsername }) => {
       >
         <p>{post.author.username}</p>
       </Link>
+
+      {post.author.username === currentUser ? (
+        <button
+          className="deletePost"
+          onClick={async (event) => {
+            event.preventDefault();
+
+            try {
+              await deletePost(post._id);
+            } catch (error) {
+              console.error(error);
+            }
+          }}
+        >
+          Delete
+        </button>
+      ) : currentUser && post.author.username !== currentUser ? (
+        <Link to={"/message"}>
+          <button>Send Message</button>
+        </Link>
+      ) : null}
     </div>
   );
 };

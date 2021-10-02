@@ -19,6 +19,7 @@ import {
   NewPost,
   SinglePostPage,
   UserPost,
+  Message,
 } from "./components";
 
 const App = () => {
@@ -74,7 +75,7 @@ const App = () => {
             <Posts allPosts={allPosts} setUsername={setUsername} />
           </Route>
           <Route path="/single-post/:id">
-            <SinglePostPage allPosts={allPosts} />
+            <SinglePostPage allPosts={allPosts} setUsername={setUsername} />
           </Route>
           <Route path="/create-new">
             <NewPost setAllPosts={setAllPosts} allPosts={allPosts} />
@@ -85,6 +86,9 @@ const App = () => {
               username={username}
               setUsername={setUsername}
             />
+          </Route>
+          <Route path="/message">
+            <Message />
           </Route>
         </Switch>{" "}
       </div>

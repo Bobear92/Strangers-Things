@@ -29,6 +29,12 @@ const NewPost = ({ allPosts, setAllPosts }) => {
             );
 
             setAllPosts([createdPost, ...allPosts]);
+
+            setTitle("");
+            setDescription("");
+            setPrice("");
+            setLocation("");
+            setWillDeliver(false);
           } catch (error) {
             console.error(error);
           }

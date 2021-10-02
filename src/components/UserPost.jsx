@@ -1,6 +1,6 @@
 import React from "react";
 import { Fragment } from "react";
-import { SinglePost, SinglePostPage } from ".";
+import { SinglePost } from ".";
 import { getUser } from "../auth";
 import { Link } from "react-router-dom";
 
@@ -19,14 +19,7 @@ const UserPost = ({ allPosts, username, setUsername }) => {
             ? post.map((post) => {
                 return (
                   <div key={post._id}>
-                    <Link
-                      to={`/single-post/${post._id}`}
-                      onClick={() => {
-                        <SinglePostPage />;
-                      }}
-                    >
-                      <SinglePost post={post} setUsername={setUsername} />
-                    </Link>
+                    <SinglePost post={post} setUsername={setUsername} />
                   </div>
                 );
               })
@@ -35,23 +28,16 @@ const UserPost = ({ allPosts, username, setUsername }) => {
       </Fragment>
     );
   } else {
-    return (
-      // need to change!
+    const post = allPosts.filter((post) => post.author.username === username);
 
+    return (
       <Fragment id="UserPost">
         <div className="card-container">
           {post.length
             ? post.map((post) => {
                 return (
                   <div key={post._id}>
-                    <Link
-                      to={`/single-post/${post._id}`}
-                      onClick={() => {
-                        <SinglePostPage />;
-                      }}
-                    >
-                      <SinglePost post={post} setUsername={setUsername} />
-                    </Link>
+                    <SinglePost post={post} setUsername={setUsername} />
                   </div>
                 );
               })

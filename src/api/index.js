@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getToken } from "../auth";
 
 const BASE = "https://strangers-things.herokuapp.com/api/2106-UNF-RM-WEB-PT";
 
@@ -72,5 +73,52 @@ export async function createPost(
     return data.data.post;
   } catch (error) {
     console.error;
+  }
+}
+
+export async function deletePost(id) {
+  const token = getToken();
+
+  try {
+    const { data } = await axios.delete(
+      `${BASE}/posts/${id}`,
+
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+      }
+    );
+
+    return data;
+  } catch (error) {
+    console.error(error);
+  } finally {
+    location.reload();
+  }
+}
+
+export async function message(message) {
+  const token = getToken();
+
+  try {
+    const { data } = await axios.post(
+      {
+        message: {
+          message: message,
+        },
+      },
+
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    console.error(error);
   }
 }
