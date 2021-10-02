@@ -1,15 +1,15 @@
 import React from "react";
 import { Fragment } from "react";
 import { SinglePost } from ".";
-import { getUser } from "../auth";
+import { useParams } from "react-router-dom";
 
-const UserPost = ({ allPosts, setUsername }) => {
-  const currentUser = getUser();
-
-  const post = allPosts.filter((post) => post.author.username === currentUser);
+const OtherUserPost = ({ allPosts, setUsername }) => {
+  const { username } = useParams();
+  const post = allPosts.filter((post) => post.author.username === username);
 
   return (
-    <Fragment id="UserPost">
+    <Fragment id="Other-User-Post">
+      <p> why can't I see this?</p>
       <div className="card-container">
         {post.length
           ? post.map((post) => {
@@ -24,4 +24,5 @@ const UserPost = ({ allPosts, setUsername }) => {
     </Fragment>
   );
 };
-export default UserPost;
+
+export default OtherUserPost;

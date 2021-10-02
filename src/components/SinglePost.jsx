@@ -1,15 +1,17 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { SinglePostPage } from ".";
 import { getUser } from "../auth";
-import { deletePost, message } from "../api";
+import { deletePost } from "../api";
 
 const SinglePost = ({ post, setUsername }) => {
   const currentUser = getUser();
-  const { id } = useParams();
+  const history = useHistory();
+
   return (
     <div className="card">
       <Link
+        exact
         to={`/single-post/${post._id}`}
         onClick={() => {
           <SinglePostPage />;
@@ -24,9 +26,11 @@ const SinglePost = ({ post, setUsername }) => {
       <p>{post.willdeliver}</p>
 
       <Link
-        to={"/my-posts"}
+        exact
+        to={`/other-users-post/${post.author.username}`}
         onClick={() => {
           setUsername(post.author.username);
+          history.push("/other-users-post/:username");
         }}
       >
         <p>{post.author.username}</p>
@@ -48,7 +52,7 @@ const SinglePost = ({ post, setUsername }) => {
           Delete
         </button>
       ) : currentUser && post.author.username !== currentUser ? (
-        <Link to={"/message"}>
+        <Link exact to={"/message"}>
           <button>Send Message</button>
         </Link>
       ) : null}

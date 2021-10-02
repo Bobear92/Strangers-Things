@@ -20,6 +20,7 @@ import {
   SinglePostPage,
   UserPost,
   Message,
+  OtherUserPost,
 } from "./components";
 
 const App = () => {
@@ -71,23 +72,29 @@ const App = () => {
             <Register setIsLoading={setIsLoading} setLoggedIn={setLoggedIn} />
           </Route>
 
-          <Route path="/posts">
+          <Route exact path="/posts">
             <Posts allPosts={allPosts} setUsername={setUsername} />
           </Route>
-          <Route path="/single-post/:id">
+          <Route exact path="/single-post/:id">
             <SinglePostPage allPosts={allPosts} setUsername={setUsername} />
           </Route>
-          <Route path="/create-new">
+          <Route exact path="/create-new">
             <NewPost setAllPosts={setAllPosts} allPosts={allPosts} />
           </Route>
-          <Route path="/my-posts">
-            <UserPost
+
+          <Route exact path="/my-posts">
+            <UserPost allPosts={allPosts} setUsername={setUsername} />
+          </Route>
+
+          <Route exact path="/other-users-post/:username">
+            <OtherUserPost
               allPosts={allPosts}
-              username={username}
               setUsername={setUsername}
+              username={username}
             />
           </Route>
-          <Route path="/message">
+
+          <Route exact path="/message">
             <Message />
           </Route>
         </Switch>{" "}
