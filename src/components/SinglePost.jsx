@@ -6,7 +6,6 @@ import { deletePost } from "../api";
 
 const SinglePost = ({ post, setUsername }) => {
   const currentUser = getUser();
-  const history = useHistory();
 
   return (
     <div className="card">
@@ -24,17 +23,16 @@ const SinglePost = ({ post, setUsername }) => {
       <p>{post.price}</p>
       <p>{post.location}</p>
       <p>{post.willdeliver}</p>
+      <p>{post.author.username}</p>
 
-      <Link
-        exact
+      {/* <Link
         to={`/other-users-post/${post.author.username}`}
         onClick={() => {
           setUsername(post.author.username);
-          history.push("/other-users-post/:username");
         }}
       >
         <p>{post.author.username}</p>
-      </Link>
+      </Link> */}
 
       {post.author.username === currentUser ? (
         <button
@@ -52,7 +50,12 @@ const SinglePost = ({ post, setUsername }) => {
           Delete
         </button>
       ) : currentUser && post.author.username !== currentUser ? (
-        <Link exact to={"/message"}>
+        <Link
+          to={"/message"}
+          onClick={() => {
+            SetPostUser(post.author.username);
+          }}
+        >
           <button>Send Message</button>
         </Link>
       ) : null}

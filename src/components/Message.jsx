@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { getPostUser, sendMessage } from "../api";
 
-const Message = () => {
+const Message = ({}) => {
   const [title, setTitle] = useState("");
-  const [message, setMessage] = useState("");
+  const [userMessage, setUserMessage] = useState("");
+
   return (
     <div id="message">
       <p className="message-title">Send User a Message</p>
@@ -12,6 +14,7 @@ const Message = () => {
           event.preventDefault();
 
           try {
+            sendMessage(id, userMessage);
           } catch (error) {
             console.error(error);
           }
@@ -35,9 +38,9 @@ const Message = () => {
             id="message-body"
             type="textarea"
             placeholder="Write out message here."
-            value={message}
+            value={userMessage}
             onChange={(event) => {
-              setMessage(event.target.value);
+              setUserMessage(event.target.value);
             }}
           ></input>
         </fieldset>

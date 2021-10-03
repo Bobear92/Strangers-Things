@@ -99,14 +99,15 @@ export async function deletePost(id) {
   }
 }
 
-export async function message(message) {
+export async function sendMessage(id, content) {
   const token = getToken();
 
   try {
     const { data } = await axios.post(
+      `${BASE}/posts/${id}/messages`,
       {
         message: {
-          message: message,
+          content,
         },
       },
 
@@ -120,5 +121,35 @@ export async function message(message) {
     return data;
   } catch (error) {
     console.error(error);
+  }
+}
+
+export async function getCurrentUser() {
+  const myToken = getToken();
+  try {
+    const { data } = await axios.get(`${BASE}/users/me`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${myToken}`,
+      },
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function getPostUser() {
+  const myToken = getToken();
+  try {
+    const { data } = await axios.get(`${BASE}/users`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${myToken}`,
+      },
+    });
+    return data;
+  } catch (error) {
+    throw error;
   }
 }

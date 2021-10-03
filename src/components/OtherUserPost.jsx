@@ -9,7 +9,6 @@ const OtherUserPost = ({ allPosts, setUsername }) => {
 
   return (
     <Fragment id="Other-User-Post">
-      <p> why can't I see this?</p>
       <div className="card-container">
         {post.length
           ? post.map((post) => {

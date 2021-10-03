@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
 import { getToken } from "./auth";
+import { getCurrentUser, getPostUser } from "./api";
 
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Redirect,
+  withRouter,
 } from "react-router-dom";
 
 import {
@@ -21,6 +23,8 @@ import {
   UserPost,
   Message,
   OtherUserPost,
+  Newcomp,
+  SearchBar,
 } from "./components";
 
 const App = () => {
@@ -28,6 +32,9 @@ const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [allPosts, setAllPosts] = useState([]);
   const [username, setUsername] = useState("");
+  const [currentUser, SetCurrentUser] = useState({});
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredPosts, setFilteredPosts] = useState([]);
 
   async function fetchAllPosts() {
     try {
@@ -54,6 +61,27 @@ const App = () => {
     isUserLoggedIn();
   }, []);
 
+  useEffect(async () => {
+    const data = await getCurrentUser();
+    SetCurrentUser(data.data);
+  }, []);
+
+  useEffect(() => {
+    const myFilteredPosts = allPosts.filter((e) => {
+      if (e.title.includes(searchTerm)) {
+        return true;
+      }
+
+      if (e.description.includes(searchTerm)) {
+        return true;
+      }
+
+      return false;
+    });
+
+    setFilteredPosts(myFilteredPosts);
+  }, [searchTerm]);
+
   return (
     <Router>
       <div id="App">
@@ -73,7 +101,12 @@ const App = () => {
           </Route>
 
           <Route exact path="/posts">
-            <Posts allPosts={allPosts} setUsername={setUsername} />
+            <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            <Posts
+              allPosts={allPosts}
+              setUsername={setUsername}
+              filteredPosts={filteredPosts}
+            />
           </Route>
           <Route exact path="/single-post/:id">
             <SinglePostPage allPosts={allPosts} setUsername={setUsername} />
@@ -82,17 +115,21 @@ const App = () => {
             <NewPost setAllPosts={setAllPosts} allPosts={allPosts} />
           </Route>
 
-          <Route exact path="/my-posts">
+          <Route path="/my-posts">
             <UserPost allPosts={allPosts} setUsername={setUsername} />
           </Route>
 
-          <Route exact path="/other-users-post/:username">
-            <OtherUserPost
-              allPosts={allPosts}
-              setUsername={setUsername}
-              username={username}
-            />
-          </Route>
+          {/* <Route
+            exact
+            path="/other-users-post/:username"
+            component={withRouter(<Newcomp />)}
+          /> */}
+
+          {/* <OtherUserPost
+                allPosts={allPosts}
+                setUsername={setUsername}
+                username={username}
+              /> */}
 
           <Route exact path="/message">
             <Message />
