@@ -1,11 +1,11 @@
 body {
-  background-color: burlywood;
+  background-color: rgb(43, 42, 42);
 }
 
 /* Header Components  */
 
 .NavBar {
-  background-color: rgba(101, 101, 161, 0.712);
+  background-color: rgba(204, 2, 2, 0.986);
   padding: 15px;
   display: grid;
   grid-template-columns:20% 20% 20% 20% 20% fit-content(100%);
@@ -17,78 +17,88 @@ body {
 }
 
 .Head-Login {
-  color: chartreuse;
+  color: white;
   margin: 1rem;
   grid-column: 4;
+  font-size: 150%;
 }
 .Head-Logged-in {
-  color: chartreuse;
+  color: white;
   margin: 1rem;
   grid-column: 5;
+  font-size: 150%;
 }
 
 .Head-Reg {
-  color: chartreuse;
+  color: white;
   margin: 1rem;
   grid-column: 5;
+  font-size: 150%;
 }
 
 .Head-Post {
-  color: chartreuse;
+  color: white;
   margin: 1rem;
   grid-column: 3;
+  font-size: 150%;
 }
 
 .loggedUser {
   text-decoration: underline;
   padding-top: 16px;
-  color: rgb(64, 114, 97);
+  color: white;
   grid-column: 4;
+  font-size: 150%;
 }
 
 .HeadTitle {
   justify-content: left;
   grid-column: 1;
   display: grid;
-  font-size: x-large;
+  font-size: 205%;
+  color: white;
 }
 
 .create-new {
-  color: chartreuse;
+  color: white;;
   margin: 1rem;
   grid-column: 2;
+  font-size: 150%;
 }
 
 /* Login and register components */
 
 .auth-component-main-container {
-  color: red;
+  color: white;
   display: flex;
   justify-content: center;
   align-content: center;
   font-size: 200%;
-  background-color: rgb(92, 15, 15);
-  border: 5px rgb(228, 222, 211) solid;
+  background-color: rgb(192, 3, 3);
+  border: 5px rgb(7, 0, 0) solid; 
   margin: 10% 20%;
   padding: 5%;
 }
 
 .auth-component-input {
   margin: 5%;
+  background-color: rgb(7, 0, 0);
 }
 
 .auth-button {
   font-size: xx-large;
   margin: 5%;
-  color: green;
+  color: rgb(212, 212, 212);
   margin-left: 100px;
+  background-color: rgb(7, 0, 0);
 }
 
 /* Posts */
 
 .card {
   border: 5px solid black;
-  background-color: aqua;
+  
+  background-color: rgb(141, 20, 20);
   font-size: medium;
   width: 250px;
   margin: 50px;
@@ -96,16 +106,26 @@ body {
   padding-right: 5%;
   display: flex;
   flex-direction: column;
+  color: rgb(250, 250, 250);
 }
 
 .card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
 }
 
 .card-title {
-  font-size: x-large;
-  font-weight: bold;
+  font-size:200%;
+  font-weight: bolder;
   text-decoration: underline;
+  color: white;
+}
+
+.search-bar-component {
+  width: 350px;
+  color: rgb(182, 181, 181);
+  padding: 10px;
+  font-size: larger;
 }
