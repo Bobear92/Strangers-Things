@@ -139,17 +139,17 @@ export async function getCurrentUser() {
   }
 }
 
-export async function getPostUser() {
-  const myToken = getToken();
-  try {
-    const { data } = await axios.get(`${BASE}/users`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${myToken}`,
-      },
-    });
-    return data;
-  } catch (error) {
-    throw error;
-  }
-}
+// export async function getPostUser() {
+//   const myToken = getToken();
+//   try {
+//     const { data } = await axios.get(`${BASE}/users`, {
+//       headers: {
+//         "Content-Type": "application/json",
+//         Authorization: `Bearer ${myToken}`,
+//       },
+//     });
+//     return data;
+//   } catch (error) {
+//     throw error;
+//   }
+// }

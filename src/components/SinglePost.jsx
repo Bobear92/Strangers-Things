@@ -50,12 +50,7 @@ const SinglePost = ({ post, setUsername }) => {
           Delete
         </button>
       ) : currentUser && post.author.username !== currentUser ? (
-        <Link
-          to={"/message"}
-          onClick={() => {
-            SetPostUser(post.author.username);
-          }}
-        >
+        <Link to={"/message"} onClick={() => {}}>
           <button>Send Message</button>
         </Link>
       ) : null}

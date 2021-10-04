@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { getPostUser, sendMessage } from "../api";
+import { sendMessage } from "../api";
 
 const Message = ({}) => {
   const [title, setTitle] = useState("");
