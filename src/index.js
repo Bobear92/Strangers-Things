@@ -35,6 +35,7 @@ const App = () => {
   const [currentUser, SetCurrentUser] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredPosts, setFilteredPosts] = useState([]);
+  const [ID, setID] = useState("");
 
   async function fetchAllPosts() {
     try {
@@ -106,6 +107,7 @@ const App = () => {
               allPosts={allPosts}
               setUsername={setUsername}
               filteredPosts={filteredPosts}
+              setID={setID}
             />
           </Route>
           <Route exact path="/single-post/:id">
@@ -132,7 +134,7 @@ const App = () => {
               /> */}
 
           <Route exact path="/message">
-            <Message />
+            <Message ID={ID} />
           </Route>
         </Switch>{" "}
       </div>

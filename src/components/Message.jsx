@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { sendMessage } from "../api";
 
-const Message = ({}) => {
+const Message = ({ ID }) => {
   const [title, setTitle] = useState("");
   const [userMessage, setUserMessage] = useState("");
 
@@ -14,7 +14,9 @@ const Message = ({}) => {
           event.preventDefault();
 
           try {
-            sendMessage(id, userMessage);
+            sendMessage(ID, userMessage);
+            setTitle("");
+            setUserMessage("");
           } catch (error) {
             console.error(error);
           }
@@ -44,6 +46,9 @@ const Message = ({}) => {
             }}
           ></input>
         </fieldset>
+        <button className="new-post-button" type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );

@@ -4,7 +4,7 @@ import { SinglePostPage } from ".";
 import { getUser } from "../auth";
 import { deletePost } from "../api";
 
-const SinglePost = ({ post, setUsername }) => {
+const SinglePost = ({ post, setID }) => {
   const currentUser = getUser();
 
   return (
@@ -50,7 +50,12 @@ const SinglePost = ({ post, setUsername }) => {
           Delete
         </button>
       ) : currentUser && post.author.username !== currentUser ? (
-        <Link to={"/message"} onClick={() => {}}>
+        <Link
+          to={"/message"}
+          onClick={() => {
+            setID(post._id);
+          }}
+        >
           <button>Send Message</button>
         </Link>
       ) : null}
