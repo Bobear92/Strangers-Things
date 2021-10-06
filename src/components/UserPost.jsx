@@ -9,7 +9,7 @@ const UserPost = ({ allPosts, setUsername }) => {
   const post = allPosts.filter((post) => post.author.username === currentUser);
 
   return (
-    <Fragment id="UserPost">
+    <Fragment>
       <div className="card-container">
         {post.length
           ? post.map((post) => {

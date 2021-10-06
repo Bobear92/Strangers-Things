@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { SinglePost } from ".";
 
-const Posts = ({ allPosts, setUsername, filteredPosts }) => {
+const Posts = ({ allPosts, filteredPosts, setID, setUsername }) => {
   return (
     <>
       <div className="card-container">
@@ -16,7 +16,11 @@ const Posts = ({ allPosts, setUsername, filteredPosts }) => {
                   key={post._id}
                   className="link-tag"
                 >
-                  <SinglePost post={post} />
+                  <SinglePost
+                    post={post}
+                    setID={setID}
+                    setUsername={setUsername}
+                  />
                 </Link>
               );
             })
@@ -24,7 +28,11 @@ const Posts = ({ allPosts, setUsername, filteredPosts }) => {
           ? allPosts.map((post) => {
               return (
                 <div key={post._id}>
-                  <SinglePost post={post} setUsername={setUsername} />
+                  <SinglePost
+                    post={post}
+                    setID={setID}
+                    setUsername={setUsername}
+                  />
                 </div>
               );
             })

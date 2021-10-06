@@ -107,7 +107,7 @@ export async function sendMessage(id, content) {
       `${BASE}/posts/${id}/messages`,
       {
         message: {
-          content,
+          content: content,
         },
       },
 

@@ -105,9 +105,9 @@ const App = () => {
             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             <Posts
               allPosts={allPosts}
-              setUsername={setUsername}
               filteredPosts={filteredPosts}
               setID={setID}
+              setUsername={setUsername}
             />
           </Route>
           <Route exact path="/single-post/:id">
@@ -117,21 +117,17 @@ const App = () => {
             <NewPost setAllPosts={setAllPosts} allPosts={allPosts} />
           </Route>
 
-          <Route path="/my-posts">
+          <Route exact path="/my-posts">
             <UserPost allPosts={allPosts} setUsername={setUsername} />
           </Route>
 
-          {/* <Route
-            exact
-            path="/other-users-post/:username"
-            component={withRouter(<Newcomp />)}
-          /> */}
-
-          {/* <OtherUserPost
-                allPosts={allPosts}
-                setUsername={setUsername}
-                username={username}
-              /> */}
+          <Route exact path="/other-users-post">
+            <OtherUserPost
+              allPosts={allPosts}
+              setUsername={setUsername}
+              username={username}
+            />
+          </Route>
 
           <Route exact path="/message">
             <Message ID={ID} />
