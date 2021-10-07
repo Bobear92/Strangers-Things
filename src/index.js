@@ -121,12 +121,8 @@ const App = () => {
             <UserPost allPosts={allPosts} setUsername={setUsername} />
           </Route>
 
-          <Route exact path="/other-users-post">
-            <OtherUserPost
-              allPosts={allPosts}
-              setUsername={setUsername}
-              username={username}
-            />
+          <Route exact path="/other-users-post/:userId">
+            <OtherUserPost allPosts={allPosts} setUsername={setUsername} />
           </Route>
 
           <Route exact path="/message">

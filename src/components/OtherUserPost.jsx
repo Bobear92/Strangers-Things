@@ -1,13 +1,12 @@
 import React from "react";
 import { Fragment } from "react";
 import { SinglePost } from ".";
+import { useParams } from "react-router";
 
-const OtherUserPost = ({ allPosts, setUsername, username }) => {
-  console.log("hello");
-  const filteredPost = allPosts.filter(
-    (post) => post.author.username === username
-  );
-  console.log(username, "Here i am!", filteredPost);
+const OtherUserPost = ({ allPosts, setUsername }) => {
+  const { userId } = useParams();
+
+  const filteredPost = allPosts.filter((post) => post.author._id === userId);
 
   return (
     <Fragment id="Other-User-Post">

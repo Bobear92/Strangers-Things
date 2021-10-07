@@ -24,7 +24,7 @@ const SinglePost = ({ post, setID, setUsername }) => {
       <p>{post.willdeliver}</p>
 
       <Link
-        to={`/other-users-post`}
+        to={`/other-users-post/${post.author._id}`}
         onClick={() => {
           setUsername(post.author.username);
         }}
